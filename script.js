@@ -122,10 +122,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Update current Bitcoin price (simulated)
 function updateBitcoinPrice() {
     const prices = [
-        "$427,500", "$428,200", "$426,800", "$429,500", "$425,900"
+        "$240,500", "$238,200", "$236,800", "$239,500", "$235,900"
     ];
     const randomPrice = prices[Math.floor(Math.random() * prices.length)];
-    document.querySelector('.jackpot-amount').innerHTML = `6.25 BTC ≈ ${randomPrice}`;
+    document.querySelector('.jackpot-amount').innerHTML = `3.125 BTC ≈ ${randomPrice}`;
 }
 
 // Update Bitcoin price every 30 seconds
