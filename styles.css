@@ -1,0 +1,542 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0066ff;
+    --primary-dark: #0044cc;
+    --secondary: #6c22bd;
+    --accent: #ff9500;
+    --text: #f8f9fa;
+    --background: #070b1e;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--background), #0d1337);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('particles-bg.png');
+    background-size: cover;
+    animation: float 120s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) translateX(15px) scale(1.05);
+    }
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Glassmorphism Card Styles */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px var(--glass-shadow);
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    position: relative;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px rgba(255, 149, 0, 0.7);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 149, 0, 0.9);
+    }
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav a:not(.cta-button)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s;
+}
+
+nav a:not(.cta-button):hover::after {
+    width: 100%;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0, 102, 255, 0.4);
+}
+
+.cta-button.large {
+    padding: 15px 40px;
+    font-size: 18px;
+}
+
+.cta-button.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 102, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 255, 0);
+    }
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70vh;
+    gap: 40px;
+    margin-bottom: 100px;
+}
+
+.hero .glass-card.main {
+    flex-basis: 60%;
+    padding: 60px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    background: linear-gradient(to right, #ffffff, #a3bbff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: textShine 3s linear infinite;
+}
+
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.hero .tagline {
+    font-size: 20px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.product-image {
+    flex-basis: 40%;
+    position: relative;
+    animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(108, 34, 189, 0.5));
+}
+
+/* Features Section */
+#features {
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+#features h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 40px 30px;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover .icon {
+    transform: scale(1.1) translateY(-5px);
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--accent);
+}
+
+/* Specs Section */
+.specs-section {
+    margin-bottom: 100px;
+}
+
+.glass-card.wide {
+    padding: 50px;
+    text-align: center;
+}
+
+.specs-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.spec {
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s;
+}
+
+.spec:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+}
+
+.spec h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+/* Pricing Section */
+.pricing-section {
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.pricing-section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.pricing-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.price {
+    font-size: 60px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+.benefits {
+    list-style: none;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.benefits li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.limited {
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.counter {
+    margin: 20px 0 30px;
+    font-size: 18px;
+}
+
+#units-left {
+    font-weight: 700;
+    animation: attention 2s infinite;
+}
+
+@keyframes attention {
+    0%, 100% {
+        color: var(--text);
+    }
+    50% {
+        color: var(--accent);
+    }
+}
+
+/* Contact Section */
+.contact-section {
+    margin-bottom: 100px;
+}
+
+.contact-card {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s;
+}
+
+.contact-form textarea {
+    grid-column: span 2;
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-form button {
+    grid-column: span 2;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    padding: 50px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: var(--text);
+    opacity: 0.7;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+.copyright {
+    margin-top: 20px;
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+    }
+    
+    .hero .glass-card.main {
+        flex-basis: 100%;
+        padding: 40px;
+    }
+    
+    .product-image {
+        flex-basis: 100%;
+    }
+    
+    .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        gap: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form textarea {
+        grid-column: span 1;
+    }
+    
+    .contact-form button {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
