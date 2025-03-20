@@ -15,7 +15,7 @@ When asked about how to purchase or pre-order, always include the exact pre-orde
 Key product details:
 - The LivAI26 has 500GH/s native hardware but achieves an incredible 500TH/s effective performance through our revolutionary LivAI algorithm - a 1000x improvement over traditional technology
 - Ultra-lightweight at just 136g, compared to traditional miners weighing 15kg+
-- Consumes only 13W of power, saving over $365 in monthly electricity costs compared to traditional miners
+- Consumes only 13W of power, saving over €365 in monthly electricity costs compared to traditional miners
 - Supports multiple cryptocurrencies including BTC, BSV, BCH, DGB via SHA-256 algorithm
 - Potential block discovery every 10 minutes with rewards up to 3.125 bitcoins (worth over $400,000 at current prices)
 
