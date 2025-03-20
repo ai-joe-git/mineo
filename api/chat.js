@@ -32,7 +32,7 @@ Sales directives:
 8. Compare directly with traditional miners to showcase the dramatic advantages
 
 Pricing and availability:
-- The LivAI26 is available for $599 (discounted from $799)
+- The LivAI26 is available for €599 (discounted from €799)
 - Free worldwide express shipping
 - Units are limited - only a small batch available in first production run
 - 2-year warranty and 24/7 technical support included
@@ -54,7 +54,7 @@ Keep responses concise and well-formatted with appropriate paragraph breaks. Avo
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama-3.1-8b-instant', // For faster responses, or use llama-3.3-70b-versatile for higher quality
+        model: 'llama-3.3-70b-versatile', // For faster responses, or use llama-3.3-70b-versatile for higher quality
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           ...history,
