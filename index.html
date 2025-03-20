@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-mode">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
+    <div class="theme-toggle">
+        <i class="fas fa-sun"></i>
+    </div>
+    
     <div class="container">
         <header>
             <div class="logo">MINEO</div>
@@ -42,7 +46,9 @@
                         <span class="stat-label">Weight</span>
                     </div>
                 </div>
-                <a href="#pricing" class="cta-button">Learn More</a>
+                <div class="cta-button-container">
+                    <a href="#pricing" class="cta-button">Learn More</a>
+                </div>
             </div>
             <div class="product-image">
                 <img src="mineo-device.png" alt="MINEO LivAI26 ASIC Miner">
@@ -204,7 +210,9 @@
                 </div>
                 <p class="limited">Pre-order now to secure priority access to this revolutionary mining technology. Limited units available in the first production batch.</p>
                 <div class="counter">Available units in first batch: <span id="units-left">127</span></div>
-                <a href="#contact" class="cta-button large">Secure Your MINEO LivAI26</a>
+                <div class="cta-button-container">
+                    <a href="#contact" class="cta-button large">Secure Your MINEO LivAI26</a>
+                </div>
             </div>
         </section>
         
@@ -299,7 +307,9 @@
                         <option value="10">10+ Units (Bulk Order)</option>
                     </select>
                     <textarea placeholder="Questions or Comments"></textarea>
-                    <button type="submit" class="cta-button">Complete Pre-order</button>
+                    <div class="cta-button-container">
+                        <button type="submit" class="cta-button">Complete Pre-order</button>
+                    </div>
                 </form>
                 <p class="guarantee">30-Day Satisfaction Guarantee | 2-Year Hardware Warranty | Secure Payment Processing</p>
             </div>
@@ -328,4 +338,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
