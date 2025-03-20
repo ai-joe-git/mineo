@@ -340,6 +340,147 @@
             </div>
         </footer>
     </div>
+
+    <!-- Chat Widget -->
+<div class="chat-widget">
+  <div class="chat-button" id="chat-button">
+    <i class="fas fa-comment"></i>
+  </div>
+  <div class="chat-container" id="chat-container">
+    <div class="chat-header">
+      <h3>MINEO Assistant</h3>
+      <button class="close-chat" id="close-chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="message bot-message">
+        👋 Welcome! I'm your MINEO AI assistant. I'm here to tell you about the revolutionary LivAI26 miner - the world's first ASIC that delivers 500TH/s performance while using just 13W of power. How can I help you discover this game-changing technology today?
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Ask about the LivAI26 miner...">
+      <button id="send-button">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+    <script>
+  // Chat functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const chatButton = document.getElementById('chat-button');
+    const chatContainer = document.getElementById('chat-container');
+    const closeChat = document.getElementById('close-chat');
+    const sendButton = document.getElementById('send-button');
+    const userInput = document.getElementById('user-input');
+    const chatMessages = document.getElementById('chat-messages');
+    
+    // Store conversation history
+    let conversationHistory = [];
+    
+    // Open chat window when button is clicked
+    chatButton.addEventListener('click', () => {
+      chatContainer.classList.add('active');
+    });
+    
+    // Close chat window
+    closeChat.addEventListener('click', () => {
+      chatContainer.classList.remove('active');
+    });
+    
+    // Send message function
+    async function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+      
+      // Add user message to chat
+      addMessage('user', message);
+      userInput.value = '';
+      
+      // Add to conversation history
+      conversationHistory.push({
+        role: 'user',
+        content: message
+      });
+      
+      // Show typing indicator
+      showTypingIndicator();
+      
+      try {
+        // Call your Vercel API route
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: message,
+            history: conversationHistory
+          })
+        });
+        
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // Add to conversation history
+        conversationHistory.push({
+          role: 'assistant',
+          content: data.response
+        });
+        
+        // Remove typing indicator and display response
+        removeTypingIndicator();
+        addMessage('bot', data.response);
+        
+      } catch (error) {
+        console.error('Error:', error);
+        removeTypingIndicator();
+        addMessage('bot', 'I apologize, but I encountered an error. Please try again.');
+      }
+    }
+    
+    // Add message to chat
+    function addMessage(sender, text) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${sender}-message`;
+      messageDiv.textContent = text;
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Show typing indicator
+    function showTypingIndicator() {
+      const indicatorDiv = document.createElement('div');
+      indicatorDiv.className = 'typing-indicator';
+      indicatorDiv.innerHTML = '<span></span><span></span><span></span>';
+      indicatorDiv.id = 'typing-indicator';
+      chatMessages.appendChild(indicatorDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Remove typing indicator
+    function removeTypingIndicator() {
+      const indicator = document.getElementById('typing-indicator');
+      if (indicator) {
+        indicator.remove();
+      }
+    }
+    
+    // Event listeners
+    sendButton.addEventListener('click', sendMessage);
+    
+    userInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+  });
+</script>
+
+
     
     <script src="script.js"></script>
 </body>
