@@ -1181,3 +1181,31 @@ footer {
 .chat-messages::-webkit-scrollbar-thumb:hover {
   background: rgba(41, 121, 255, 0.7);
 }
+
+
+/* Add to your existing CSS */
+.bot-message p {
+  margin: 0 0 10px 0;
+}
+
+.bot-message p:last-child {
+  margin-bottom: 0;
+}
+
+.bot-message a {
+  color: #75a7ff;
+  text-decoration: underline;
+}
+
+.bot-message a:hover {
+  color: #2979ff;
+}
+
+.bot-message ul, .bot-message ol {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.bot-message li {
+  margin-bottom: 5px;
+}
