@@ -54,14 +54,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Parallax effect for background particles
-window.addEventListener('scroll', () => {
-    const particles = document.querySelector('.particles');
-    const scrollY = window.scrollY;
-    
-    particles.style.transform = `translateY(${scrollY * 0.1}px)`;
-});
-
 // Animate elements when they come into view
 const animateOnScroll = () => {
     const elements = document.querySelectorAll('.glass-card, .spec, .product-image');
