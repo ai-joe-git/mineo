@@ -449,7 +449,7 @@
       messageDiv.className = `message ${sender}-message`;
       
       if (withTypingEffect) {
-        // Format the text with proper paragraphs
+        // Format the text with proper paragraphs and links
         const formattedText = formatMessageText(text);
         
         // Add empty paragraph to start with
@@ -467,8 +467,23 @@
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
     
-    // Format message text for better readability
+    // Format message text for better readability and make links clickable
     function formatMessageText(text) {
+      // First, escape any HTML (security measure)
+      text = escapeHtml(text);
+      
+      // Replace URLs with clickable links (including the pre-order URL)
+      text = text.replace(
+        /(https?:\/\/[^\s]+)/g, 
+        '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+      );
+      
+      // Specific handling for the Mineo pre-order link to make it more visible
+      text = text.replace(
+        /<a href="https:\/\/mineo\.cloud\/#contact"([^>]+)>https:\/\/mineo\.cloud\/#contact<\/a>/g,
+        '<a href="https://mineo.cloud/#contact"$1 class="preorder-link">Pre-order the LivAI26 miner here</a>'
+      );
+      
       // Replace line breaks with <br> tags
       text = text.replace(/\n/g, '<br>');
       
@@ -484,6 +499,13 @@
       }
       
       return text;
+    }
+    
+    // Helper function to escape HTML
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
     }
     
     // Typing effect function
@@ -536,6 +558,7 @@
     });
   });
 </script>
+
 
 
 
