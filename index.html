@@ -352,9 +352,10 @@
       <button class="close-chat" id="close-chat"><i class="fas fa-times"></i></button>
     </div>
     <div class="chat-messages" id="chat-messages">
-      <div class="message bot-message">
-        👋 Welcome! I'm your MINEO AI assistant. I'm here to tell you about the revolutionary LivAI26 miner - the world's first ASIC that delivers 500TH/s performance while using just 13W of power. How can I help you discover this game-changing technology today?
-      </div>
+     <div class="message bot-message">
+      👋 Hi there! I'm your MINEO assistant. Want to learn how our LivAI26 miner delivers 500TH/s performance using just 13W of power? Ask me anything!
+     </div>
+
     </div>
     <div class="chat-input">
       <input type="text" id="user-input" placeholder="Ask about the LivAI26 miner...">
@@ -365,7 +366,7 @@
   </div>
 </div>
 
-    <script>
+<script>
   // Chat functionality
   document.addEventListener('DOMContentLoaded', function() {
     const chatButton = document.getElementById('chat-button');
@@ -394,7 +395,7 @@
       if (!message) return;
       
       // Add user message to chat
-      addMessage('user', message);
+      addMessage('user', message, false);
       userInput.value = '';
       
       // Add to conversation history
@@ -433,22 +434,78 @@
         
         // Remove typing indicator and display response
         removeTypingIndicator();
-        addMessage('bot', data.response);
+        addMessage('bot', data.response, true);
         
       } catch (error) {
         console.error('Error:', error);
         removeTypingIndicator();
-        addMessage('bot', 'I apologize, but I encountered an error. Please try again.');
+        addMessage('bot', 'I apologize, but I encountered an error. Please try again.', false);
       }
     }
     
     // Add message to chat
-    function addMessage(sender, text) {
+    function addMessage(sender, text, withTypingEffect = false) {
       const messageDiv = document.createElement('div');
       messageDiv.className = `message ${sender}-message`;
-      messageDiv.textContent = text;
-      chatMessages.appendChild(messageDiv);
+      
+      if (withTypingEffect) {
+        // Format the text with proper paragraphs
+        const formattedText = formatMessageText(text);
+        
+        // Add empty paragraph to start with
+        messageDiv.innerHTML = '';
+        chatMessages.appendChild(messageDiv);
+        
+        // Apply typing effect
+        typeMessage(messageDiv, formattedText, 0, 10);
+      } else {
+        // For user messages or error messages, display immediately
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+      }
+      
       chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Format message text for better readability
+    function formatMessageText(text) {
+      // Replace line breaks with <br> tags
+      text = text.replace(/\n/g, '<br>');
+      
+      // Add paragraph breaks for better readability
+      text = text.replace(/<br><br>/g, '</p><p>');
+      
+      // Wrap in paragraph tags if not already
+      if (!text.startsWith('<p>')) {
+        text = '<p>' + text;
+      }
+      if (!text.endsWith('</p>')) {
+        text = text + '</p>';
+      }
+      
+      return text;
+    }
+    
+    // Typing effect function
+    function typeMessage(element, text, index, speed) {
+      if (index < text.length) {
+        element.innerHTML = text.substring(0, index + 1);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Handle HTML tags so they don't disrupt the typing effect
+        if (text.charAt(index) === '<') {
+          // Find the closing bracket of the tag
+          const closeIndex = text.indexOf('>', index);
+          if (closeIndex !== -1) {
+            // Skip to after the tag
+            index = closeIndex;
+          }
+        }
+        
+        setTimeout(function() {
+          typeMessage(element, text, index + 1, speed);
+        }, speed);
+      }
     }
     
     // Show typing indicator
@@ -479,6 +536,7 @@
     });
   });
 </script>
+
 
 
     
