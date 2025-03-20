@@ -25,12 +25,12 @@ export default async function handler(req, res) {
   3. Highlight the massive ROI potential compared to traditional miners
   4. Create urgency by mentioning limited availability in the first production batch
   5. Suggest ordering multiple units to increase mining chances
-  6. When appropriate, direct users to the pre-order form
+  6. When appropriate, direct users to the pre-order form here https://mineo.cloud/#contact make it clickable in the chat
   7. Address objections with specific benefits (power savings, space savings, noise reduction)
   8. Compare directly with traditional miners to showcase the dramatic advantages
 
   Pricing and availability:
-  - The LivAI26 is available for $5,499 (discounted from $7,999)
+  - The LivAI26 is available for $599 (discounted from $799)
   - Free worldwide express shipping
   - Units are limited - only a small batch available in first production run
   - 2-year warranty and 24/7 technical support included
