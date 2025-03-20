@@ -12,6 +12,29 @@ function updateCounter() {
 // Update counter randomly
 setInterval(updateCounter, 10000);
 
+// Theme toggle functionality
+const themeToggle = document.querySelector('.theme-toggle');
+const htmlElement = document.documentElement;
+
+themeToggle.addEventListener('click', () => {
+    if (htmlElement.classList.contains('light-mode')) {
+        htmlElement.classList.remove('light-mode');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        htmlElement.classList.add('light-mode');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+    htmlElement.classList.add('light-mode');
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+}
+
 // FAQ toggle functionality
 const faqItems = document.querySelectorAll('.faq-item');
 
