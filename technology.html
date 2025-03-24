@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology | MINEO LivAI26 Bitcoin ASIC Miner</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-text: #777;
+            --background: #f9f9f9;
+            --card-bg: white;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2980b9 100%);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tech-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-icon svg {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .animation-container {
+            position: relative;
+            height: 300px;
+            margin: 2rem 0;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            background-color: var(--secondary-color);
+        }
+        
+        .animation-element {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+        
+        .animation-element:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+        
+        .animation-element:nth-child(2) {
+            top: 50%;
+            left: 50%;
+            animation-delay: 0.5s;
+        }
+        
+        .animation-element:nth-child(3) {
+            top: 30%;
+            left: 70%;
+            animation-delay: 1s;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+        }
+        
+        .feature-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .diagram {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .comparison-table th, 
+            .comparison-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MINEO</div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="technology.html">Technology</a>
+                    <a href="support.html">Support</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Revolutionary MINEO Technology</h1>
+            <p>Discover the breakthrough innovation behind the world's most efficient Bitcoin ASIC miner</p>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The LivAI Algorithm</h2>
+            <div class="card">
+                <p>The MINEO LivAI26 miner is powered by our proprietary LivAI algorithm, a groundbreaking technology that fundamentally redefines how mining hardware interacts with the blockchain.</p>
+                <p>Unlike traditional miners that rely solely on brute computing power, the LivAI algorithm leverages advanced machine learning techniques to intelligently optimize the mining process, resulting in unprecedented efficiency gains.</p>
+                
+                <div class="animation-container">
+                    <div class="animation-element"></div>
+                    <div class="animation-element"></div>
+                    <div class="animation-element"></div>
+                </div>
+                
+                <h3>How LivAI Works</h3>
+                <p>The LivAI algorithm employs a multi-tiered approach to mining optimization:</p>
+                <ol>
+                    <li><strong>Real-time Hash Pattern Analysis:</strong> The algorithm continuously monitors the blockchain and identifies statistical patterns in successful hash solutions.</li>
+                    <li><strong>Predictive Solution Mapping:</strong> Using these patterns, LivAI predicts higher-probability solution ranges, focusing computational resources on the most promising areas.</li>
+                    <li><strong>Adaptive Resource Allocation:</strong> Computational resources are dynamically allocated based on changing network conditions, maximizing efficiency at all times.</li>
+                    <li><strong>Neural Network Optimization:</strong> A neural network continuously learns from mining outcomes, refining the algorithm's efficiency over time.</li>
+                </ol>
+                
+                <p>This revolutionary approach delivers performance equivalent to a 50TH/s traditional miner while consuming just 13W of power—a 1000× improvement in efficiency.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Innovations</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3>Smart Hash Management</h3>
+                    <p>Intelligent distribution of computational resources based on real-time probability analysis of the mining pool.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
+                        </svg>
+                    </div>
+                    <h3>Nano-scale ASIC Architecture</h3>
+                    <p>Custom-designed 5nm ASIC chips optimized specifically for the LivAI algorithm's unique processing requirements.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3>Ultra-Low Power Design</h3>
+                    <p>Advanced power management system with dynamic voltage scaling and selective core activation to minimize power consumption.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Adaptive Learning System</h3>
+                    <p>Self-improving algorithm that continuously learns from mining operations to optimize performance based on historical success patterns.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3>Miniaturized Hardware</h3>
+                    <p>Advanced component integration and thermal design allowing for a compact 136g form factor without sacrificing performance.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Multi-Cryptocurrency Support</h3>
+                    <p>Flexible architecture that adapts to different SHA-256 based cryptocurrencies, optimizing for each blockchain's specific characteristics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Performance Comparison</h2>
+            <div class="card">
+                <p>The MINEO LivAI26 represents a quantum leap in mining technology, as demonstrated by these comparative benchmarks:</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th>MINEO LivAI26</th>
+                            <th>Traditional 50TH/s Miner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Effective Hash Power</td>
+                            <td>Equivalent to 50TH/s</td>
+                            <td>50TH/s</td>
+                        </tr>
+                        <tr>
+                            <td>Hardware Hash Rate</td>
+                            <td>500GH/s</td>
+                            <td>50TH/s</td>
+                        </tr>
+                        <tr>
+                            <td>Power Consumption</td>
+                            <td>13W</td>
+                            <td>3400W</td>
+                        </tr>
+                        <tr>
+                            <td>Energy Efficiency</td>
+                            <td>0.026 J/GH</td>
+                            <td>68 J/GH</td>
+                        </tr>
+                        <tr>
+                            <td>Weight</td>
+                            <td>136g</td>
+                            <td>~15kg</td>
+                        </tr>
+                        <tr>
+                            <td>Noise Level</td>
+                            <td>Virtually silent</td>
+                            <td>70-80dB</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Electricity Cost*</td>
+                            <td>~$1.40</td>
+                            <td>~$367.20</td>
+                        </tr>
+                        <tr>
+                            <td>Cooling Requirements</td>
+                            <td>None</td>
+                            <td>Dedicated cooling system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>*Electricity cost calculated at $0.15/kWh average rate</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Specifications</h2>
+            <div class="card">
+                <h3>MINEO LivAI26 Hardware</h3>
+                <ul class="feature-list">
+                    <li><strong>Algorithm:</strong> SHA-256 with LivAI enhancement</li>
+                    <li><strong>Hardware Hash Rate:</strong> 500GH/s</li>
+                    <li><strong>Effective Performance:</strong> Equivalent to 50TH/s</li>
+                    <li><strong>Power Consumption:</strong> 13W</li>
+                    <li><strong>Energy Efficiency:</strong> 0.026 J/GH (Industry leading)</li>
+                    <li><strong>Dimensions:</strong> 10cm × 7.5cm × 2cm</li>
+                    <li><strong>Weight:</strong> 136g</li>
+                    <li><strong>Connectivity:</strong> WiFi and Ethernet</li>
+                    <li><strong>User Interface:</strong> Mobile app and web dashboard</li>
+                    <li><strong>Supported Cryptocurrencies:</strong> BTC, BSV, BCH, DGB, and other SHA-256 coins</li>
+                    <li><strong>Operating Temperature:</strong> 0-40°C (No cooling required)</li>
+                </ul>
+                
+                <h3>LivAI Software Features</h3>
+                <ul class="feature-list">
+                    <li>Integrated real-time performance monitoring</li>
+                    <li>Automated mining pool optimization</li>
+                    <li>Self-updating firmware with performance improvements</li>
+                    <li>Remote management capabilities</li>
+                    <li>Detailed mining statistics and analytics</li>
+                    <li>Intelligent power management system</li>
+                    <li>Customizable mining profiles</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Research & Development</h2>
+            <div class="card">
+                <p>The MINEO LivAI26 represents years of research and development by our team of blockchain experts and AI researchers. Our development process included:</p>
+                
+                <h3>Blockchain Analysis</h3>
+                <p>Extensive analysis of blockchain patterns and successful mining operations to identify optimization opportunities.</p>
+                
+                <h3>Algorithm Development</h3>
+                <p>Creation of the proprietary LivAI algorithm through iterative development and testing against existing mining technologies.</p>
+                
+                <h3>Hardware Optimization</h3>
+                <p>Custom ASIC design specifically tailored to the unique requirements of the LivAI algorithm, focusing on minimizing power consumption while maximizing effective performance.</p>
+                
+                <h3>Ongoing Improvement</h3>
+                <p>Continuous evolution of the LivAI algorithm through machine learning techniques that analyze mining success patterns and refine the optimization strategy.</p>
+                
+                <p>Our commitment to innovation doesn't stop with the LivAI26. Our research team continues to develop new technologies that will further revolutionize cryptocurrency mining, with a focus on improving efficiency, reducing environmental impact, and making mining accessible to everyone.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="logo">MINEO</div>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="technology.html">Technology</a>
+                <a href="support.html">Support</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+            <p>© 2025 MINEO Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

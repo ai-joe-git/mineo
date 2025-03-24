@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | MINEO LivAI26 Bitcoin ASIC Miner</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-text: #777;
+            --background: #f9f9f9;
+            --card-bg: white;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2980b9 100%);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .support-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .support-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .support-icon svg {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .contact-form {
+            margin-top: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.2rem;
+        }
+        
+        .faq-answer {
+            padding: 1rem;
+            background-color: #f5f5f5;
+            border-radius: var(--border-radius);
+            display: none;
+        }
+        
+        .faq-item.open .faq-question::after {
+            content: '-';
+        }
+        
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+        
+        .support-steps {
+            counter-reset: step-counter;
+            list-style-type: none;
+        }
+        
+        .support-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .support-step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .documentation-list {
+            list-style-type: none;
+        }
+        
+        .documentation-list li {
+            margin-bottom: 1rem;
+        }
+        
+        .documentation-list a {
+            display: block;
+            padding: 1rem;
+            background-color: #f5f5f5;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.3s;
+        }
+        
+        .documentation-list a:hover {
+            background-color: #e0e0e0;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MINEO</div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="technology.html">Technology</a>
+                    <a href="support.html">Support</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Support Center</h1>
+            <p>Get help with your MINEO LivAI26 miner and find answers to your questions</p>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Support Options</h2>
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                    </div>
+                    <h3>Live Chat Support</h3>
+                    <p>Connect with our technical experts in real-time for immediate assistance with your MINEO LivAI26 miner.</p>
+                    <a href="#" class="btn">Chat Now</a>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Email Support</h3>
+                    <p>Send us a detailed description of your issue and we'll respond within 24 hours with a solution.</p>
+                    <a href="#contact-form" class="btn">Contact Us</a>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3>Knowledge Base</h3>
+                    <p>Browse our comprehensive documentation, tutorials, and troubleshooting guides for self-service support.</p>
+                    <a href="#faq" class="btn">View FAQs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="card">
+                <div class="faq-item open">
+                    <div class="faq-question">How does the LivAI26 achieve such high efficiency?</div>
+                    <div class="faq-answer">
+                        <p>The LivAI26 uses our proprietary LivAI algorithm that optimizes the SHA-256 mining process through advanced machine learning techniques. This innovation allows for significant reductions in power consumption while maintaining competitive hash rates. The algorithm continuously adapts to network conditions to maximize efficiency, delivering performance equivalent to a 50TH/s miner while consuming only 13W of power.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I set up my MINEO LivAI26 miner?</div>
+                    <div class="faq-answer">
+                        <p>Setting up your MINEO LivAI26 is simple:</p>
+                        <ol>
+                            <li>Connect the miner to a power source using the included adapter</li>
+                            <li>Download the MINEO app from the App Store or Google Play</li>
+                            <li>Open the app and follow the on-screen instructions to connect the miner to your WiFi network</li>
+                            <li>Enter your cryptocurrency wallet address</li>
+                            <li>Select your preferred mining pool or choose solo mining</li>
+                            <li>The miner will automatically start mining</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I mine solo with the MINEO LivAI26?</div>
+                    <div class="faq-answer">
+                        <p>Yes, the LivAI26 is perfectly suitable for solo mining with its performance equivalent to a 50TH/s miner. Every 10 minutes, you have the opportunity to discover a block with rewards up to 3.125 bitcoins. You can also connect to mining pools if preferred. The miner's energy efficiency makes it economically viable for solo mining unlike traditional miners with high operating costs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What cryptocurrencies can I mine with the LivAI26?</div>
+                    <div class="faq-answer">
+                        <p>The MINEO LivAI26 supports mining of all cryptocurrencies based on the SHA-256 algorithm, including:</p>
+                        <ul>
+                            <li>Bitcoin (BTC)</li>
+                            <li>Bitcoin Cash (BCH)</li>
+                            <li>Bitcoin SV (BSV)</li>
+                            <li>DigiByte (DGB)</li>
+                            <li>And other SHA-256 based coins</li>
+                        </ul>
+                        <p>The miner automatically optimizes its performance for each cryptocurrency's specific blockchain characteristics.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is the expected ROI period?</div>
+                    <div class="faq-answer">
+                        <p>ROI periods vary based on network difficulty, cryptocurrency prices, and whether blocks are discovered. The LivAI26's advantage is its minimal operational costs due to ultra-low power consumption (13W), which significantly improves the potential ROI compared to traditional miners with high electricity costs.</p>
+                        <p>With current Bitcoin prices and network difficulty, and considering the miner's potential to discover blocks, many users can expect to see a return on their investment within 3-6 months. However, cryptocurrency mining is inherently variable, and returns cannot be guaranteed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How does the warranty work?</div>
+                    <div class="faq-answer">
+                        <p>The MINEO LivAI26 comes with a comprehensive 2-year warranty covering all hardware defects and failures under normal usage conditions. If your device experiences any issues, our support team will help diagnose the problem and arrange for repair or replacement if necessary.</p>
+                        <p>The warranty does not cover damage caused by improper use, unauthorized modifications, or exposure to extreme environmental conditions. To make a warranty claim, contact our support team with your order details and a description of the issue.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I run multiple LivAI26 miners in the same location?</div>
+                    <div class="faq-answer">
+                        <p>Yes, you can run multiple MINEO LivAI26 miners in the same location without any issues. Each miner operates independently and can be managed through the MINEO app. Running multiple miners increases your chances of discovering blocks if solo mining, or increases your rewards from pool mining.</p>
+                        <p>The low power consumption of the LivAI26 (just 13W per device) means you can operate numerous miners on a standard household power circuit without concerns about overloading or excessive electricity costs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do firmware updates work?</div>
+                    <div class="faq-answer">
+                        <p>The MINEO LivAI26 receives automatic firmware updates over your WiFi connection. These updates improve performance, add new features, and enhance security. When a new update is available, you'll receive a notification in the MINEO app.</p>
+                        <p>Updates install automatically during periods of low mining activity to minimize impact on your mining operations. You can also manually check for updates or schedule them at specific times through the app. All firmware updates are included free of charge for the life of the device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Troubleshooting Guide</h2>
+            <div class="card">
+                <h3>Common Issues and Solutions</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Miner is not connecting to WiFi</div>
+                    <div class="faq-answer">
+                        <ol>
+                            <li>Ensure the miner is within range of your WiFi router</li>
+                            <li>Verify you entered the correct WiFi password</li>
+                            <li>Try resetting the miner by disconnecting power for 10 seconds, then reconnecting</li>
+                            <li>Check if your WiFi uses 5GHz band (the miner supports both 2.4GHz and 5GHz)</li>
+                            <li>If issues persist, try connecting via Ethernet cable</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Mining app shows "Disconnected" status</div>
+                    <div class="faq-answer">
+                        <ol>
+                            <li>Verify the miner is powered on (blue LED should be illuminated)</li>
+                            <li>Check your internet connection</li>
+                            <li>Ensure your smartphone and miner are on the same network</li>
+                            <li>Try force-closing and reopening the app</li>
+                            <li>Reset the miner by disconnecting power for 10 seconds</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Mining performance is lower than expected</div>
+                    <div class="faq-answer">
+                        <ol>
+                            <li>Check that your miner has the latest firmware update</li>
+                            <li>Verify your internet connection speed and stability</li>
+                            <li>Try connecting to a different mining pool</li>
+                            <li>Ensure the miner is placed in a well-ventilated area</li>
+                            <li>Check for any network firewalls that might be blocking mining traffic</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Miner shows "Hardware Error"</div>
+                    <div class="faq-answer">
+                        <ol>
+                            <li>Power cycle the miner by disconnecting and reconnecting after 30 seconds</li>
+                            <li>Check for the latest firmware update</li>
+                            <li>If using a power adapter different from the one provided, switch to the original</li>
+                            <li>If the error persists, contact support for assistance</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <h3>Setup Guide</h3>
+                <ol class="support-steps">
+                    <li class="support-step">
+                        <h4>Unbox your MINEO LivAI26</h4>
+                        <p>Carefully remove the miner and accessories from the packaging. The package should include the LivAI26 miner, power adapter with international plugs, and a quick start guide.</p>
+                    </li>
+                    <li class="support-step">
+                        <h4>Connect to power</h4>
+                        <p>Attach the appropriate plug to the power adapter for your region, then connect the adapter to the miner and plug it into a power outlet. The blue power LED should illuminate.</p>
+                    </li>
+                    <li class="support-step">
+                        <h4>Download the MINEO app</h4>
+                        <p>Search for "MINEO Mining" in the App Store or Google Play Store and download the official app to your smartphone.</p>
+                    </li>
+                    <li class="support-step">
+                        <h4>Create an account</h4>
+                        <p>Open the app and follow the instructions to create your MINEO account or log in if you already have one.</p>
+                    </li>
+                    <li class="support-step">
+                        <h4>Add your miner</h4>
+                        <p>In the app, tap "Add New Miner" and follow the on-screen instructions to connect your LivAI26 to your WiFi network.</p>
+                    </li>
+                    <li class="support-step">
+                        <h4>Configure mining settings</h4>
+                        <p>Enter your cryptocurrency wallet address and select your preferred mining pool (or choose solo mining). You can also customize other settings like power management profiles.</p>
+                    </li>
+                    <li class="support-step">
+                        <h4>Start mining</h4>
+                        <p>Once configured, your MINEO LivAI26 will automatically begin mining. You can monitor performance, earnings, and other statistics through the app.</p>
+                    </li>
+                </ol>
+                
+                <h3>Resources</h3>
+                <ul class="documentation-list">
+                    <li><a href="#">Complete User Manual (PDF)</a></li>
+                    <li><a href="#">Video Tutorials</a></li>
+                    <li><a href="#">Mining Pool Configuration Guide</a></li>
+                    <li><a href="#">Performance Optimization Guide</a></li>
+                    <li><a href="#">Firmware Update Instructions</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact-form" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Support</h2>
+            <div class="card">
+                <p>Need personalized assistance? Fill out the form below and our support team will get back to you within 24 hours.</p>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="order">Order Number (if applicable)</label>
+                        <input type="text" id="order" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" class="form-control" required>
+                            <option value="">Select a topic</option>
+                            <option value="pre-sales">Pre-Sales Question</option>
+                            <option value="order">Order Status</option>
+                            <option value="setup">Setup Assistance</option>
+                            <option value="technical">Technical Issue</option>
+                            <option value="warranty">Warranty Claim</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Detailed Description</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit Support Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="logo">MINEO</div>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="technology.html">Technology</a>
+                <a href="support.html">Support</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+            <p>© 2025 MINEO Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
