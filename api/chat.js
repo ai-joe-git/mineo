@@ -54,7 +54,7 @@ Keep responses concise and well-formatted with appropriate paragraph breaks. Avo
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile', // For faster responses, or use llama-3.3-70b-versatile for higher quality
+        model: 'llama-3.1-8b-instant', // For faster responses, or use llama-3.3-70b-versatile for higher quality
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           ...history,
