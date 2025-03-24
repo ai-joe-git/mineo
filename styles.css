@@ -14,7 +14,7 @@
     --light-text: #1a1a1a;
     --light-text-light: #5b5b5b;
     --light-text-dark: #000000;
-    --light-background: linear-gradient(-45deg, #f5f7ff, #e8f0ff, #d9e6ff, #c5d9ff);
+    --light-background: linear-gradient(-45deg, #ffffff, #ffffff, #ffffff, #ffffff);
     --light-card-bg: rgba(255, 255, 255, 0.85);
     --light-card-border: rgba(230, 230, 230, 0.8);
     --light-card-shadow: rgba(0, 0, 0, 0.05);
@@ -796,7 +796,6 @@ section h2 {
 footer {
     padding: 50px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(30, 38, 50, 0.7);
     backdrop-filter: blur(10px);
 }
 
